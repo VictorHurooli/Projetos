@@ -1,0 +1,178 @@
+TextWindow.WriteLine("Olá, Bem-Vindo ao SeuCardapio, mas antes de começarmos me responda algumas perguntas?")
+TextWindow.Write("Qual é o seu nome?: ")
+nome = TextWindow.Read()
+TextWindow.WriteLine(nome + " correto?")
+
+While certeza <> "sim" And certeza <> "nao"
+  certeza = TextWindow.Read()
+ If certeza = "sim" Then
+  TextWindow.WriteLine("Olá " + nome + " Prazer em lhe conhecer.")
+Else 
+  TextWindow.WriteLine("Sem problemas pode reescreve-lo: .")
+  certeza = TextWindow.Read()
+EndIf
+EndWhile
+
+TextWindow.Clear()
+
+TextWindow.Write("Muito bem " + nome + " qual a sua idade?: ")
+idade = TextWindow.ReadNumber()
+TextWindow.Write(idade + " correto?: ")
+certeza1 = TextWindow.Read()
+While certeza1 <> "sim" And certeza1 <> "nao"
+  TextWindow.WriteLine("Escreva aqui o correto: ")
+  certeza1 = TextWindow.Read()
+  EndWhile
+if certeza1 = "nao" Then 
+  TextWindow.WriteLine("Sem problemas pode reescreve-lo: ")
+  certeza1 = TextWindow.Read()
+EndIf
+TextWindow.Clear()
+
+TextWindow.Write(nome + " você pratica algum esporte?(por favor responda apenas com sim ou não): ")
+esporte = TextWindow.Read()
+While esporte <> "sim" And esporte <> "nao"
+  TextWindow.WriteLine("Resposta invalida! Por favor " + nome + "peço que responda com Sim ou Nao.")
+  esporte = TextWindow.Read()
+  EndWhile
+ If esporte = "sim" Then
+  TextWindow.WriteLine("Que bom " + nome + " isso é uma noticia muito boa.")
+EndIf
+if esporte = "nao" Then 
+  TextWindow.WriteLine("Sem problemas " + nome + " temos cardapio para todos os gostos ;).")
+EndIf
+TextWindow.Clear()
+
+TextWindow.Write(nome + " qual o seu peso? é importante para nossa equeipe saber o peso correto: ")
+peso = TextWindow.ReadNumber()
+While peso <= 0 Or peso >= 500
+  TextWindow.WriteLine("Tem certeza que digitou corretamente?")
+  peso = TextWindow.Read()
+EndWhile
+  If peso > 0 And peso < 500 Then
+    TextWindow.WriteLine("Obrigado pela sua resposta sincera " + nome + " vamos para ultima pergunta.")
+  EndIf
+TextWindow.WriteLine(peso + " correto?")
+certeza2 = TextWindow.Read()
+While certeza2 <> "sim" And certeza2 <> "nao"
+  TextWindow.WriteLine("Escreva aqui o correto: ")
+  certeza2 = TextWindow.Read()
+  EndWhile
+if certeza2 = "nao" Then 
+  TextWindow.WriteLine("Sem problemas pode reescreve-lo: .")
+  certeza2 = TextWindow.Read()
+EndIf
+TextWindow.Clear()
+  
+  TextWindow.Write(nome + " Qual é o seu tipo de alimentação? Você é vegana, vegetariana ou come de tudo?: ")
+alimentação = TextWindow.Read()
+While alimentação <> "vegana" And alimentação <> "vegetariana" And alimentação <> "como de tudo"
+  TextWindow.WriteLine("Resposta invalida! Por favor " + nome + "peço que responda apenas com as propostas acima.")
+  alimentação = TextWindow.Read()
+EndWhile
+If alimentação = "vegana" Or alimentação = "vegetariana" Then
+  TextWindow.WriteLine("hmm... Temos um cardapio especial para voçê!")
+ElseIf alimentação = "como de tudo" Then
+  TextWindow.WriteLine("Sensacional vamos ao cardapio do dia!")
+EndIf
+TextWindow.WriteLine(alimentação + " correto?")
+certeza3 = TextWindow.Read()
+While certeza3 <> "sim" And certeza3 <> "nao"
+  TextWindow.WriteLine("Escreva aqui o correto: ")
+  certeza3 = TextWindow.Read()
+  EndWhile
+if certeza3 = "nao" Then 
+  TextWindow.WriteLine("Sem problemas pode reescreve-lo: ")
+  certeza3 = TextWindow.Read()
+EndIf
+TextWindow.Clear()
+
+If Clock.Hour < 13 Or Clock.Hour < 16 Then
+ TextWindow.WriteLine("Te desejo um bom almoço")
+ElseIf Clock.Hour >= 17 Then
+ TextWindow.WriteLine("Te desejo um bom jantar")
+EndIf
+
+hora = Clock.Hour
+dia = Clock.WeekDay
+
+if dia = "domingo" And hora <= 16 And alimentação = "vegana" Then
+  TextWindow.WriteLine("cardapio especial Domingão : Salada de feijão preto e quinoa com molho Cítrico.")
+ElseIf dia = "segunda-feira" And hora <= 16 And alimentação = "vegana" Then
+  TextWindow.WriteLine("cardapio especial Segunda-Feira : Arroz com Legumes e Tofu Assado.")
+  ElseIf dia = "terça-feira" And hora <= 16 And alimentação = "vegana" Then
+    TextWindow.WriteLine("cardapio especial Terça-Feira : Batata Doce Assada Recheada.")
+    ElseIf dia = "quarta-feira" And hora <= 16 And alimentação = "vegana" Then
+      TextWindow.WriteLine("cardapio especial Quartaa-Feira : Salpicao Vegano.")
+      ElseIf dia = "quinta-feira" And hora <= 16 And alimentação = "vegana" Then
+        TextWindow.WriteLine("cardapio especial Quinta-Feira : Risoto De Cogumelos Silvestres.")
+        ElseIf dia = "sexta-feira" And hora <= 16 And alimentação = "vegana" Then
+          TextWindow.WriteLine("cardapio especial Sexta-Feira : Risoto de Abóbora com Leite de Coco e Gengibre Vegano.")
+          ElseIf dia = "sabado" And hora <= 16 And alimentação = "vegana" Then
+            TextWindow.WriteLine("cardapio especial Sabado : Churrasco Vegano.")
+          EndIf
+if dia = "domingo" And hora >= 16 And alimentação = "vegana" Then
+  TextWindow.WriteLine("cardapio especial Domingão : Macarrão ao Molho Pesto Vegano.")
+ElseIf dia = "segunda-feira" And hora >= 16 And alimentação = "vegana" Then
+  TextWindow.WriteLine("cardapio especial Segunda-Feira : Pizza de Marguerita Vegana.")
+  ElseIf dia = "terça-feira" And hora >= 16 And alimentação = "vegana" Then
+    TextWindow.WriteLine("cardapio especial Terça-Feira : Sopa de Cebola.")
+    ElseIf dia = "quarta-feira" And hora >= 16 And alimentação = "vegana" Then
+      TextWindow.WriteLine("cardapio especial Quartaa-Feira : Quibe de Forno.")
+      ElseIf dia = "quinta-feira" And hora >= 16 And alimentação = "vegana" Then
+        TextWindow.WriteLine("cardapio especial Quinta-Feira : Quiche de Espinafre Vegano.")
+        ElseIf dia = "sexta-feira" And hora >= 16 And alimentação = "vegana" Then
+          TextWindow.WriteLine("cardapio especial Sexta-Feira : Salada de Feijão Preto e Quinoa com Molho Cítrico.")
+          ElseIf dia = "sabado" And hora >= 16 And alimentação = "vegana" Then
+            TextWindow.WriteLine("cardapio especial Sabado : Fritas de Batata-doce com Guacamole.")
+          EndIf
+
+
+if dia = "domingo" And hora <= 16 And alimentação = "vegetariana" Then
+  TextWindow.WriteLine("cardapio especial Domingão :  Fricassê de palmito.")
+ElseIf dia = "segunda-feira" And hora <= 16 And alimentação = "vegetariana" Then
+  TextWindow.WriteLine("cardapio especial Segunda-Feira : Panqueca de legumes")
+  ElseIf dia = "terça-feira" And hora <= 16 And alimentação = "vegetariana" Then
+    TextWindow.WriteLine("cardapio especial Terça-Feira : Strogonoff de palmito.")
+    ElseIf dia = "quarta-feira" And hora <= 16 And alimentação = "vegetariana" Then
+      TextWindow.WriteLine("cardapio especial Quartaa-Feira : Raviolli com recheio de berinjela.")
+      ElseIf dia = "quinta-feira" And hora <= 16 And alimentação = "vegetariana" Then
+        TextWindow.WriteLine("cardapio especial Quinta-Feira : Arroz com lentilhas e cebolas douradas.")
+        ElseIf dia = "sexta-feira" And hora <= 16 And alimentação = "vegetariana" Then
+          TextWindow.WriteLine("cardapio especial Sexta-Feira : Risoto de alho poró.")
+          ElseIf dia = "sabado" And hora <= 16 And alimentação = "vegetariana" Then
+            TextWindow.WriteLine("cardapio especial Sabado : Nhoque de mandioquinha com farinha.")
+          EndIf
+if dia = "domingo" And hora >= 16 And alimentação = "vegetariana" Then
+  TextWindow.WriteLine("cardapio especial Domingão : Escondidinho vegetariano de legumes.")
+ElseIf dia = "segunda-feira" And hora >= 16 And alimentação = "vegetariana" Then
+  TextWindow.WriteLine("cardapio especial Segunda-Feira : Lasanha de brocolis com molho branco.")
+  ElseIf dia = "terça-feira" And hora >= 16 And alimentação = "vegetariana" Then
+    TextWindow.WriteLine("cardapio especial Terça-Feira : Almondegas de carne de jaca.")
+    ElseIf dia = "quarta-feira" And hora >= 16 And alimentação = "vegetariana" Then
+      TextWindow.WriteLine("cardapio especial Quartaa-Feira : Abobrinha gratinada.")
+      ElseIf dia = "quinta-feira" And hora >= 16 And alimentação = "vegetariana" Then
+        TextWindow.WriteLine("cardapio especial Quinta-Feira : Curry de cogumelos e legumes.")
+        ElseIf dia = "sexta-feira" And hora >= 16 And alimentação = "vegetariana" Then
+          TextWindow.WriteLine("cardapio especial Sexta-Feira : Bobó Vegano(inhame, mandioca, leite de coco e champignon).")
+          ElseIf dia = "sabado" And hora >= 16 And alimentação = "vegetariana" Then
+            TextWindow.WriteLine("cardapio especial Sabado : hambúrguer vegetariano de soja.")
+          EndIf
+
+
+if dia = "domingo" And hora <= 16 And alimentação = "como de tudo" Then
+  TextWindow.WriteLine("cardapio especial Domingão : Escalope ao molho madeira.")
+ElseIf dia = "segunda-feira" And hora <= 16 And alimentação = "como de tudo" Then
+  TextWindow.WriteLine("cardapio especial Segunda-Feira : ")
+  ElseIf dia = "terça-feira" And hora <= 16 And alimentação = "como de tudo" Then
+    TextWindow.WriteLine("cardapio especial Terça-Feira : .")
+    ElseIf dia = "quarta-feira" And hora <= 16 And alimentação = "como de tudo" Then
+      TextWindow.WriteLine("cardapio especial Quartaa-Feira : .")
+      ElseIf dia = "quinta-feira" And hora <= 16 And alimentação = "como de tudo" Then
+        TextWindow.WriteLine("cardapio especial Quinta-Feira : .")
+        ElseIf dia = "sexta-feira" And hora <= 16 And alimentação = "como de tudo" Then
+          TextWindow.WriteLine("cardapio especial Sexta-Feira : .")
+          ElseIf dia = "sabado" And hora <= 16 And alimentação = "como de tudo" Then
+            TextWindow.WriteLine("cardapio especial Sabado : .")
+          EndIf
+          
