@@ -1,0 +1,37 @@
+ValorCarro = 100000
+Carro = 0
+While Carro <> 100000
+  TextWindow.Write("Digite o valor do carro: ")
+  Carro = TextWindow.ReadNumber()
+  If Carro < 100000 Then
+    TextWindow.WriteLine("Esse valor não e aceito, tente novamente: ")
+  EndIf
+  EndWhile
+  
+  ValorEntrada = 50000
+  Entrada = 0
+  While Entrada < 50000
+    TextWindow.Write("Por Favor informe o valor de entrada: ")
+    Entrada = TextWindow.ReadNumber()
+    If Entrada < 50000 Then
+      TextWindow.WriteLine("Este valor não atende aos requisitos minimos!")
+    EndIf
+  EndWhile
+  
+  TextWindow.WriteLine("Simulação de Parcelamento")
+  Parcelamento = Carro - Entrada
+  TextWindow.WriteLine("Valor a Financiar " + Parcelamento)
+  If Parcelamento >= 30000 And Parcelamento <= 49000 Then
+    TextWindow.WriteLine("Parcelamento em até 6 vezes.")
+  EndIf
+  ValorParcela = 6
+  Parcelas = 1
+  While Parcelas < 6
+    TextWindow.WriteLine("Digite o numero de parcela desejadas")
+    Parcela = TextWindow.ReadNumber()
+    TextWindow.WriteLine("Segue o valor da simulaçao")
+    Simulaçao = Parcelamento/Parcela
+    TextWindow.WriteLine("Voce irá pagar " + Parcela + " de " + Simulaçao)
+  EndWhile
+  TextWindow.WriteLine("parabens prossiga com sua compra.")
+  
